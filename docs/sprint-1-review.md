@@ -1,5 +1,7 @@
 # Sprint 1 Review
 
+Full write-up: [README.md](../README.md).
+
 **Sprint goal:** A user can add a task and see the list.
 
 **Result:** Goal met. US-01 and US-02 are done. US-03, US-04, US-05, and US-06 stay in the backlog.

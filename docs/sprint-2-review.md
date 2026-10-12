@@ -1,5 +1,7 @@
 # Sprint 2 Review
 
+Full write-up: [README.md](../README.md).
+
 **Sprint goal:** A user can finish or remove a task, and an operator can see that the app is up.
 
 **Result:** Goal met. US-03, US-04, and US-05 are done. US-06 stays in the backlog.
@@ -21,6 +23,8 @@ The Sprint 1 retrospective asked for menu tests and for logs. Both are in place.
 ```text
 mvnw.cmd -q exec:java
 ```
+
+The menu is printed before every choice. A full session is in the README. The lines the user sees for each action are:
 
 ```text
 > 1

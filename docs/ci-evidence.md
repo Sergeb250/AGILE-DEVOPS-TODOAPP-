@@ -1,16 +1,20 @@
 # CI evidence
 
+Full write-up: [README.md](../README.md).
+
 Workflow file: `.github/workflows/ci.yml`
 
-On every push and pull request, GitHub Actions checks out the repo, installs Temurin 17, and runs `./mvnw -B test`.
+On every push and pull request the workflow does three things:
 
-Local run on 12 Oct 2026, after status and logging:
+1. Check out the repository.
+2. Install Temurin JDK 17.
+3. Run `./mvnw -B test`.
+
+Local run on 12 Oct 2026, after the console menu, status line, and logs were in place:
 
 ```text
 Tests run: 14, Failures: 0, Errors: 0, Skipped: 0
 BUILD SUCCESS
 ```
 
-The same command is what the workflow runs. A green run appears on the Actions tab after this history is pushed:
-
-https://github.com/Sergeb250/AGILE-DEVOPS-TODOAPP-/actions
+`TodoListTest` has 8 tests. `TodoAppTest` has 6 tests. The workflow runs that same command. Actions: https://github.com/Sergeb250/AGILE-DEVOPS-TODOAPP-/actions

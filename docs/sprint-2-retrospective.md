@@ -1,5 +1,7 @@
 # Sprint 2 Retrospective
 
+Full write-up: [README.md](../README.md).
+
 ## What went well
 
 - The two Sprint 1 actions were done first: a test that drives the console menu, then a status line and one `LOG` line per action.

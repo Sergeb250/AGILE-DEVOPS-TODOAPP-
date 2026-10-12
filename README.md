@@ -76,30 +76,73 @@ A number that is not a whole id prints `Id must be a number`.
 mvnw.cmd -q exec:java
 ```
 
+The menu is printed again after every action. This is a real session:
+
 ```text
+1) Add
+2) List
+3) Complete
+4) Delete
+5) Status
+0) Exit
 > 1
 Title: Buy milk
 Added 1. [ ] Buy milk
 LOG add id=1
+1) Add
+2) List
+3) Complete
+4) Delete
+5) Status
+0) Exit
 > 2
 LOG list count=1
 1. [ ] Buy milk
+1) Add
+2) List
+3) Complete
+4) Delete
+5) Status
+0) Exit
 > 3
 Id: 1
 Completed 1. [x] Buy milk
 LOG complete id=1
+1) Add
+2) List
+3) Complete
+4) Delete
+5) Status
+0) Exit
+> 5
+status=UP todos=1
+LOG status=UP todos=1
+1) Add
+2) List
+3) Complete
+4) Delete
+5) Status
+0) Exit
 > 4
 Id: 1
 Deleted 1
 LOG delete id=1
-> 5
-status=UP todos=0
-LOG status=UP todos=0
+1) Add
+2) List
+3) Complete
+4) Delete
+5) Status
+0) Exit
+> 0
+```
+
+A blank title looks like this:
+
+```text
 > 1
 Title:
 Title is required
 LOG error Title is required
-> 0
 ```
 
 ## Definition of Done
@@ -304,14 +347,14 @@ Steps:
 
 The wrapper downloads Maven 3.9.11, so the runner does not need Maven installed first.
 
-Local result that the pipeline repeats:
+Local result on 12 Oct 2026:
 
 ```text
 Tests run: 14, Failures: 0, Errors: 0, Skipped: 0
 BUILD SUCCESS
 ```
 
-Actions tab: https://github.com/Sergeb250/AGILE-DEVOPS-TODOAPP-/actions
+That is the command the workflow runs. The Actions page for this repository is https://github.com/Sergeb250/AGILE-DEVOPS-TODOAPP-/actions.
 
 ## Commit history
 
@@ -319,6 +362,7 @@ Newest first. Every commit is by SergeB250.
 
 | Commit | What changed |
 |--------|----------------|
+| `773089c` | Name the documentation commit in the README |
 | `01fc2e1` | Record the Sprint 2 review and this README |
 | `8f5a222` | Add a status line and one log per action |
 | `d562bf9` | Delete a to-do from the menu |

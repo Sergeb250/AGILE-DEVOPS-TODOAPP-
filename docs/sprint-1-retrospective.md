@@ -1,5 +1,7 @@
 # Sprint 1 Retrospective
 
+Full write-up: [README.md](../README.md).
+
 ## What went well
 
 - The sprint goal stayed small: add a task, then see the list. Both stories finished inside the sprint with no spillover.

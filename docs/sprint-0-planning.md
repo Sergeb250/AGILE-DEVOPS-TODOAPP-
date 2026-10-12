@@ -1,5 +1,7 @@
 # Sprint 0 — Planning
 
+Full write-up: [README.md](../README.md). The app is a console menu with three classes: `Todo`, `TodoList`, and `TodoApp`.
+
 ## Product vision
 
 A small console to-do app lets a person add tasks, see the list, mark work done, and remove tasks they no longer need. The same app prints a status line and a log line for each action so a run can be checked the same way every time.
