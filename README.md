@@ -319,7 +319,7 @@ Newest first. Every commit is by SergeB250.
 
 | Commit | What changed |
 |--------|----------------|
-| latest | Record the Sprint 2 review and this README |
+| `01fc2e1` | Record the Sprint 2 review and this README |
 | `8f5a222` | Add a status line and one log per action |
 | `d562bf9` | Delete a to-do from the menu |
 | `40e2b89` | Mark a to-do complete from the menu |
