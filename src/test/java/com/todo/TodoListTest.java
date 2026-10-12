@@ -51,4 +51,23 @@ class TodoListTest {
 
         assertEquals(List.of("One", "Two"), titles);
     }
+
+    @Test
+    void completeMarksTheTodoDone() {
+        TodoList list = new TodoList();
+        list.add("Buy milk");
+
+        Todo done = list.complete(1);
+
+        assertTrue(done.isCompleted());
+        assertTrue(list.complete(1).isCompleted());
+        assertEquals("1. [x] Buy milk", list.all().get(0).toString());
+    }
+
+    @Test
+    void completeRejectsAnUnknownId() {
+        IllegalArgumentException missing = assertThrows(IllegalArgumentException.class, () -> new TodoList().complete(9));
+
+        assertEquals("Todo not found", missing.getMessage());
+    }
 }

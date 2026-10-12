@@ -25,11 +25,13 @@ public class TodoApp {
         while (running && in.hasNextLine()) {
             out.println("1) Add");
             out.println("2) List");
+            out.println("3) Complete");
             out.println("0) Exit");
             out.print("> ");
             switch (in.nextLine().trim()) {
                 case "1" -> add();
                 case "2" -> show();
+                case "3" -> complete();
                 case "0" -> running = false;
                 default -> out.println("Unknown option");
             }
@@ -57,6 +59,21 @@ public class TodoApp {
         }
         for (Todo todo : items) {
             out.println(todo);
+        }
+    }
+
+    private void complete() {
+        out.print("Id: ");
+        if (!in.hasNextLine()) {
+            return;
+        }
+        try {
+            Todo todo = list.complete(Integer.parseInt(in.nextLine().trim()));
+            out.println("Completed " + todo);
+        } catch (NumberFormatException ex) {
+            out.println("Id must be a number");
+        } catch (IllegalArgumentException ex) {
+            out.println(ex.getMessage());
         }
     }
 }

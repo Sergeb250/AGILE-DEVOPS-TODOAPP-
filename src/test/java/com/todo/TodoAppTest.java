@@ -39,6 +39,32 @@ class TodoAppTest {
         assertFalse(output.contains("Added"));
     }
 
+    @Test
+    void userCanCompleteATodo() {
+        String output = run("""
+                1
+                Buy milk
+                3
+                1
+                2
+                0
+                """);
+
+        assertTrue(output.contains("Completed 1. [x] Buy milk"));
+        assertTrue(output.contains("1. [x] Buy milk"));
+    }
+
+    @Test
+    void missingIdIsNotFound() {
+        String output = run("""
+                3
+                9
+                0
+                """);
+
+        assertTrue(output.contains("Todo not found"));
+    }
+
     private static String run(String input) {
         ByteArrayOutputStream buffer = new ByteArrayOutputStream();
         TodoApp app = new TodoApp(

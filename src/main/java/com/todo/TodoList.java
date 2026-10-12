@@ -19,4 +19,19 @@ public class TodoList {
     public List<Todo> all() {
         return List.copyOf(items);
     }
+
+    public Todo complete(int id) {
+        Todo todo = find(id);
+        todo.markCompleted();
+        return todo;
+    }
+
+    private Todo find(int id) {
+        for (Todo todo : items) {
+            if (todo.getId() == id) {
+                return todo;
+            }
+        }
+        throw new IllegalArgumentException("Todo not found");
+    }
 }
