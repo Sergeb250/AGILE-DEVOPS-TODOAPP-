@@ -26,12 +26,14 @@ public class TodoApp {
             out.println("1) Add");
             out.println("2) List");
             out.println("3) Complete");
+            out.println("4) Delete");
             out.println("0) Exit");
             out.print("> ");
             switch (in.nextLine().trim()) {
                 case "1" -> add();
                 case "2" -> show();
                 case "3" -> complete();
+                case "4" -> delete();
                 case "0" -> running = false;
                 default -> out.println("Unknown option");
             }
@@ -70,6 +72,22 @@ public class TodoApp {
         try {
             Todo todo = list.complete(Integer.parseInt(in.nextLine().trim()));
             out.println("Completed " + todo);
+        } catch (NumberFormatException ex) {
+            out.println("Id must be a number");
+        } catch (IllegalArgumentException ex) {
+            out.println(ex.getMessage());
+        }
+    }
+
+    private void delete() {
+        out.print("Id: ");
+        if (!in.hasNextLine()) {
+            return;
+        }
+        try {
+            int id = Integer.parseInt(in.nextLine().trim());
+            list.delete(id);
+            out.println("Deleted " + id);
         } catch (NumberFormatException ex) {
             out.println("Id must be a number");
         } catch (IllegalArgumentException ex) {

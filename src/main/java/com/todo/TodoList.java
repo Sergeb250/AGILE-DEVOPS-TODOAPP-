@@ -26,6 +26,14 @@ public class TodoList {
         return todo;
     }
 
+    public void delete(int id) {
+        items.remove(find(id));
+    }
+
+    public int size() {
+        return items.size();
+    }
+
     private Todo find(int id) {
         for (Todo todo : items) {
             if (todo.getId() == id) {

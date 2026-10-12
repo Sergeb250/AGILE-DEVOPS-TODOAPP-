@@ -65,6 +65,23 @@ class TodoListTest {
     }
 
     @Test
+    void deleteRemovesTheTodo() {
+        TodoList list = new TodoList();
+        list.add("Buy milk");
+
+        list.delete(1);
+
+        assertTrue(list.all().isEmpty());
+    }
+
+    @Test
+    void deleteRejectsAnUnknownId() {
+        IllegalArgumentException missing = assertThrows(IllegalArgumentException.class, () -> new TodoList().delete(9));
+
+        assertEquals("Todo not found", missing.getMessage());
+    }
+
+    @Test
     void completeRejectsAnUnknownId() {
         IllegalArgumentException missing = assertThrows(IllegalArgumentException.class, () -> new TodoList().complete(9));
 

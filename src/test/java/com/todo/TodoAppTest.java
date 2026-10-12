@@ -55,9 +55,26 @@ class TodoAppTest {
     }
 
     @Test
+    void userCanDeleteATodo() {
+        String output = run("""
+                1
+                Buy milk
+                4
+                1
+                2
+                0
+                """);
+
+        assertTrue(output.contains("Deleted 1"));
+        assertTrue(output.contains("No todos."));
+    }
+
+    @Test
     void missingIdIsNotFound() {
         String output = run("""
                 3
+                9
+                4
                 9
                 0
                 """);
