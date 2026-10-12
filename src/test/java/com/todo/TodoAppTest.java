@@ -70,6 +70,22 @@ class TodoAppTest {
     }
 
     @Test
+    void statusAndLogsArePrinted() {
+        String output = run("""
+                5
+                1
+                Buy milk
+                2
+                0
+                """);
+
+        assertTrue(output.contains("status=UP todos=0"));
+        assertTrue(output.contains("LOG status=UP todos=0"));
+        assertTrue(output.contains("LOG add id=1"));
+        assertTrue(output.contains("LOG list count=1"));
+    }
+
+    @Test
     void missingIdIsNotFound() {
         String output = run("""
                 3

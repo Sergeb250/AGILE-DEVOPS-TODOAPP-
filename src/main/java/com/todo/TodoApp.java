@@ -27,6 +27,7 @@ public class TodoApp {
             out.println("2) List");
             out.println("3) Complete");
             out.println("4) Delete");
+            out.println("5) Status");
             out.println("0) Exit");
             out.print("> ");
             switch (in.nextLine().trim()) {
@@ -34,8 +35,12 @@ public class TodoApp {
                 case "2" -> show();
                 case "3" -> complete();
                 case "4" -> delete();
+                case "5" -> status();
                 case "0" -> running = false;
-                default -> out.println("Unknown option");
+                default -> {
+                    out.println("Unknown option");
+                    log("error unknown option");
+                }
             }
         }
     }
@@ -48,13 +53,16 @@ public class TodoApp {
         try {
             Todo todo = list.add(in.nextLine());
             out.println("Added " + todo);
+            log("add id=" + todo.getId());
         } catch (IllegalArgumentException ex) {
             out.println(ex.getMessage());
+            log("error " + ex.getMessage());
         }
     }
 
     private void show() {
         List<Todo> items = list.all();
+        log("list count=" + items.size());
         if (items.isEmpty()) {
             out.println("No todos.");
             return;
@@ -72,10 +80,13 @@ public class TodoApp {
         try {
             Todo todo = list.complete(Integer.parseInt(in.nextLine().trim()));
             out.println("Completed " + todo);
+            log("complete id=" + todo.getId());
         } catch (NumberFormatException ex) {
             out.println("Id must be a number");
+            log("error Id must be a number");
         } catch (IllegalArgumentException ex) {
             out.println(ex.getMessage());
+            log("error " + ex.getMessage());
         }
     }
 
@@ -88,10 +99,23 @@ public class TodoApp {
             int id = Integer.parseInt(in.nextLine().trim());
             list.delete(id);
             out.println("Deleted " + id);
+            log("delete id=" + id);
         } catch (NumberFormatException ex) {
             out.println("Id must be a number");
+            log("error Id must be a number");
         } catch (IllegalArgumentException ex) {
             out.println(ex.getMessage());
+            log("error " + ex.getMessage());
         }
+    }
+
+    private void status() {
+        String line = "status=UP todos=" + list.size();
+        out.println(line);
+        log(line);
+    }
+
+    private void log(String message) {
+        out.println("LOG " + message);
     }
 }
