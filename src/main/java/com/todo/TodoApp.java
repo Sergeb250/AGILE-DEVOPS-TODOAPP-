@@ -38,7 +38,7 @@ public class TodoApp {
                 case "5" -> status();
                 case "0" -> running = false;
                 default -> {
-                    out.println("Unknown option, try again");
+                    out.println("Unknown option, ");
                     log("error unknown option");
                 }
             }
