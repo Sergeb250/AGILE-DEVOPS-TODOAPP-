@@ -9,7 +9,7 @@ public class TodoList {
 
     public Todo add(String title) {
         if (title == null || title.isBlank()) {
-            throw new IllegalArgumentException("Title is required");
+            throw new IllegalArgumentException("Title is required please ");
         }
         Todo todo = new Todo(nextId++, title.trim());
         items.add(todo);
@@ -40,6 +40,6 @@ public class TodoList {
                 return todo;
             }
         }
-        throw new IllegalArgumentException("Todo not found");
+        throw new IllegalArgumentException("Todo not found, try agian");
     }
 }
